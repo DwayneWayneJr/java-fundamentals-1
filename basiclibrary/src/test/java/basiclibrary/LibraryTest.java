@@ -47,19 +47,34 @@ public class LibraryTest {
         assertTrue(actual == true);
     }
 
-    @Test public void testCalculateSingleArrayAverage () {
-        int[] input1 = new int[] {1, 2, 3, 4};
+    @Test public void testCalculateSingleArrayAverage1 () {
+        int[] input1 = new int[] {1, 1, 1, 1};
+
+        double actual1 = Library.calculateSingleArrayAverages(input1);
+
+        assertTrue( 1 == actual1);
+    }
+
+    @Test public void testCalculateSingleArrayAverage2 () {
         int[] input2 = new int[] {3, 2, 2, 2};
 
-        float actual1 = Library.calculateSingleArrayAverages(input1);
-        float actual2 = Library.calculateSingleArrayAverages(input2);
+        double actual2 = Library.calculateSingleArrayAverages(input2);
 
-        assertTrue(2.5 == actual1);
         assertTrue(2.25 == actual2);
     }
 
     @Test public void testFindArrayWithLowestAverage () {
-        
+        int[][] input1 = {
+                {6, 6, 5, 6, 7, 5, 6}, // 5.85714286
+                {7, 6, 6, 7, 7, 6, 5}, // 6.28571429
+                {4, 5, 6, 5, 5, 5, 6}, // 5.14285714
+                {3, 6, 5, 5, 5, 6, 5} // 5
+        };
+
+        int[] expected = new int [] {3, 6, 5, 5, 5, 6, 5};
+        int[] actual = Library.findArrayWithLowestAverage(input1);
+
+        assertArrayEquals(expected, actual);
     }
 
 

@@ -30,9 +30,9 @@ public class Library {
         return checkDuplicate;
     }
 
-    public static float calculateSingleArrayAverages(int[] array) {
-        int total = 0;
-        int average = 0;
+    public static double calculateSingleArrayAverages(int[] array) {
+        double total = 0;
+        double average = 0;
 
         for (int value : array) {
             total = total + value;
@@ -45,10 +45,10 @@ public class Library {
 
     public static int[] findArrayWithLowestAverage(int[][] array) {
         int[] lowestAverageArray = array[0];
-        float currentLowestAverage = calculateSingleArrayAverages(array[0]);
+        double currentLowestAverage = calculateSingleArrayAverages(array[0]);
 
         for (int[] ints : array) {
-            float checkingAverage = calculateSingleArrayAverages(ints);
+            double checkingAverage = calculateSingleArrayAverages(ints);
 
             if (currentLowestAverage > checkingAverage) {
                 currentLowestAverage = checkingAverage;
