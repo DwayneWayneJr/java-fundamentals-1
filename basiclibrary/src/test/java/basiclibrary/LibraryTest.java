@@ -56,8 +56,10 @@ public class LibraryTest {
 
         assertTrue(2.5 == actual1);
         assertTrue(2.25 == actual2);
+    }
 
-
+    @Test public void testFindArrayWithLowestAverage () {
+        
     }
 
 

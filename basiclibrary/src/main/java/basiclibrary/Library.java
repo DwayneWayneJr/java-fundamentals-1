@@ -8,7 +8,7 @@ public class Library {
         return true;
     }
 
-    public static int[] roll (int n) {
+    public static int[] roll(int n) {
         int[] rollArray = new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -17,7 +17,7 @@ public class Library {
         return rollArray;
     }
 
-    public static boolean containsDuplicates (int[] array) {
+    public static boolean containsDuplicates(int[] array) {
         boolean checkDuplicate = false;
 
         for (int i = 0; i < array.length; i++) {
@@ -30,16 +30,31 @@ public class Library {
         return checkDuplicate;
     }
 
-    public static float calculateSingleArrayAverages (int[] array) {
+    public static float calculateSingleArrayAverages(int[] array) {
         int total = 0;
         int average = 0;
 
-        for (int i = 0; i < array.length; i++) {
-            total = total + array[i];
+        for (int value : array) {
+            total = total + value;
         }
 
-        average = total/array.length;
+        average = total / array.length;
 
         return average;
+    }
+
+    public static int[] findArrayWithLowestAverage(int[][] array) {
+        int[] lowestAverageArray = array[0];
+        float currentLowestAverage = calculateSingleArrayAverages(array[0]);
+
+        for (int[] ints : array) {
+            float checkingAverage = calculateSingleArrayAverages(ints);
+
+            if (currentLowestAverage > checkingAverage) {
+                currentLowestAverage = checkingAverage;
+                lowestAverageArray = ints;
+            }
+        }
+        return lowestAverageArray;
     }
 }
