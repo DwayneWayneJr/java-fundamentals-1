@@ -8,3 +8,10 @@
     - pluralize
     - flipNHeads
     - clock
+    
+## Basic Library
+  - Library.java
+    - roll
+    - containsDuplicates
+    - calculateSingleArrayAverages
+    - findArrayWithLowestAverage
