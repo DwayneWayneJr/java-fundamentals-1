@@ -103,7 +103,19 @@ public class AppTest {
     }
 
     @Test public void testScanForSemicolonsWithFewErrors () {
+        String input = "src/main/resources/fewErrors.js";
 
+        String expected =
+            "Line 5 is missing a semicolon" + "\n" +
+            "Line 7 is missing a semicolon" + "\n" +
+            "Line 10 is missing a semicolon" + "\n" +
+            "Line 12 is missing a semicolon" + "\n" +
+            "Line 14 is missing a semicolon" + "\n" +
+            "Line 16 is missing a semicolon" + "\n" +
+            "Line 19 is missing a semicolon" + "\n";
+        String actual = App.scanForSemicolons("src/main/resources/fewErrors.js");
+
+        assertEquals(expected, actual);
     }
 
     @Test public void testScanForSemicolonsOnEmptyFile () {
