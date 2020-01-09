@@ -5,7 +5,11 @@ package basiclibrary;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class LibraryTest {
@@ -14,6 +18,7 @@ public class LibraryTest {
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
 
+    //Test to see if the length of the array returned is expected
     @Test public void testRollLength () {
        int[] actual = Library.roll(4);
        int[] expected = new int[4];
@@ -21,18 +26,7 @@ public class LibraryTest {
        assertEquals(expected.length, actual.length);
     }
 
-//    @Test public void testRollInputs () {
-//        int min = 1;
-//        int max = 6;
-//
-//        int[] actual = Library.roll(5);
-//
-//        for (int i = 0; i < actual.length; i++) {
-//            Assert.assertTrue("Rolled higher than 1", min >= actual[i]);
-//            Assert.assertTrue("Rolled lower than 6", max <= actual[i]);
-//        }
-//    }
-
+    //Test for an array not containing duplicates
     @Test public void testContainsDuplicatesFalse () {
         int[] input1 = new int[] {1, 2, 3, 4, 5};
         boolean actual = Library.containsDuplicates(input1);
@@ -40,6 +34,7 @@ public class LibraryTest {
         assertTrue(actual == false);
     }
 
+    //Test for an array containing duplicates
     @Test public void testContainsDuplicatesTrue () {
         int[] input2 = new int[] {1, 2, 2, 1, 6};
         boolean actual = Library.containsDuplicates(input2);
@@ -47,6 +42,7 @@ public class LibraryTest {
         assertTrue(actual == true);
     }
 
+    //Testing for a whole number average
     @Test public void testCalculateSingleArrayAverage1 () {
         int[] input1 = new int[] {1, 1, 1, 1};
 
@@ -55,6 +51,7 @@ public class LibraryTest {
         assertTrue( 1 == actual1);
     }
 
+    //Testing for a decimal number average
     @Test public void testCalculateSingleArrayAverage2 () {
         int[] input2 = new int[] {3, 2, 2, 2};
 
@@ -63,6 +60,7 @@ public class LibraryTest {
         assertTrue(2.25 == actual2);
     }
 
+    //Test to see if array with lowest value returned
     @Test public void testFindArrayWithLowestAverage () {
         int[][] input1 = {
                 {6, 6, 5, 6, 7, 5, 6}, // 5.85714286
@@ -75,6 +73,40 @@ public class LibraryTest {
         int[] actual = Library.findArrayWithLowestAverage(input1);
 
         assertArrayEquals(expected, actual);
+    }
+
+    //Test to see if high/low and unseen temps for the month are returned in a string
+    @Test public void testAnalyzeWeatherData () {
+        int[][] input = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        String expected = "High: 72" + "\n" + "Low: 51" + "\n" + "Never saw temperature: 63" + "\n" + "Never saw temperature: 67" + "\n" + "Never saw temperature: 68" + "\n" + "Never saw temperature: 69" + "\n";
+        String actual = Library.analyzeWeatherData((input));
+
+        assertEquals(expected, actual);
+    }
+
+    //Test to see if tally function returns a string with the person who received the most votes
+    @Test public void testTally () {
+        List<String> input = new ArrayList<>();
+        input.add("Bush");
+        input.add("Bush");
+        input.add("Bush");
+        input.add("Shrub");
+        input.add("Hedge");
+        input.add("Shrub");
+        input.add("Bush");
+        input.add("Hedge");
+        input.add("Bush");
+
+        String expected = "Bush got the most votes!";
+        String actual = Library.tally(input);
+
+        assertEquals(expected, actual);
     }
 
 
