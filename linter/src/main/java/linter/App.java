@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
 
-        System.out.println(scanForSemicolons("src/main/resources/gates.js"));
+        System.out.printf(scanForSemicolons("src/main/resources/gates.js"));
     }
 
     public static String scanForSemicolons (String path) {
@@ -28,11 +28,11 @@ public class App {
 
             while (linter.hasNextLine()) {
                 String currentLine = linter.nextLine();
-                if (currentLine.endsWith("{") || currentLine.endsWith(";") || currentLine.startsWith("if")) {
+
+                if(!currentLine.endsWith("{") || !currentLine.endsWith(";") || !currentLine.startsWith("if")) {
                     lineCounter++;
-                    errors += String.format("Line %d is missing a semicolon", lineCounter) + "\n";
                 } else {
-                    linter.nextLine();
+                    errors += String.format("Line %d is missing a semicolon", lineCounter) + "\n";
                     lineCounter++;
                 }
             }

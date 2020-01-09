@@ -27,6 +27,7 @@ public class AppTest {
         "Line 34 is missing a semicolon" + "\n" +
         "Line 38 is missing a semicolon" + "\n";
         String actual = App.scanForSemicolons(input);
+        System.out.println(actual);
 
         assertEquals(expected, actual);
     }
@@ -34,7 +35,10 @@ public class AppTest {
     @Test public void testScanForSemicolonsWithNoErrors () {
         String input = "src/main/resources/noErrors.js";
 
+        String expected = "";
+        String actual = App.scanForSemicolons(input);
 
+        assertEquals(expected, actual);
     }
 
     @Test public void testScanForSemicolonsWithOneError () {
