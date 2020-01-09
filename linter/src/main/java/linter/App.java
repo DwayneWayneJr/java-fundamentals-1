@@ -3,6 +3,11 @@
  */
 package linter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.util.Scanner;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
@@ -10,5 +15,32 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+
+        System.out.println(scanForSemicolons("src/main/resources/gates.js"));
+    }
+
+    public static String scanForSemicolons (String path) {
+        String errors = "";
+        try {
+            Scanner linter;
+            linter = new Scanner(new File(path));
+            int lineCounter = 1;
+
+            while (linter.hasNextLine()) {
+                String currentLine = linter.nextLine();
+                if (currentLine.endsWith("{") || currentLine.endsWith(";") || currentLine.startsWith("if")) {
+                    lineCounter++;
+                    errors += String.format("Line %d is missing a semicolon", lineCounter) + "\n";
+                } else {
+                    linter.nextLine();
+                    lineCounter++;
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return errors;
     }
 }
