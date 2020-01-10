@@ -3,6 +3,10 @@
  */
 package basiclibrary;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
@@ -56,5 +60,62 @@ public class Library {
             }
         }
         return lowestAverageArray;
+    }
+
+
+    public static String analyzeWeatherData (int[][] array) {
+        HashSet <Integer> temps = new HashSet<>();
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int k = 0; k < array[i].length; k++) {
+                temps.add(array[i][k]);
+                if (array[i][k] < min) {
+                    min = array[i][k];
+                } else if (array[i][k] > max) {
+                    max = array[i][k];
+                }
+            }
+        }
+
+        String weatherStr = "High: " + max + "\n";
+        weatherStr += String.format("Low: %d", min) + "\n";
+
+        while (min < max) {
+            int temp = min++;
+            if (!temps.contains(temp)) {
+                weatherStr += String.format("Never saw temperature: %d", temp) + "\n";
+            }
+        }
+
+        return weatherStr;
+    }
+
+    public static String tally (List<String> votes) {
+        HashMap<String, Integer> votesTally = new HashMap<>();
+        HashSet<String> candidates = new HashSet<>();
+        String winner = null;
+
+        for (String vote : votes) {
+            if (!candidates.contains(vote)) {
+                candidates.add(vote);
+                votesTally.put(vote, 1);
+            } else {
+                int numVotes = votesTally.get(vote);
+                votesTally.put(vote, numVotes + 1);
+            }
+        }
+
+        int mostVotes = Integer.MIN_VALUE;
+        for (String candidate : candidates) {
+            int totalVotes = votesTally.get(candidate);
+            if (totalVotes > mostVotes) {
+                winner = candidate;
+                mostVotes = totalVotes;
+            }
+        }
+
+        return winner += " got the most votes!";
     }
 }
