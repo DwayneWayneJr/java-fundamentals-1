@@ -15,3 +15,8 @@
     - containsDuplicates
     - calculateSingleArrayAverages
     - findArrayWithLowestAverage
+    - analyzeWeatherData
+    - tally
+    
+## Linter
+  - searchForSemicolons
