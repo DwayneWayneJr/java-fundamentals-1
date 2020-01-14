@@ -13,4 +13,11 @@ public class Restaurant {
         this.price = price;
     }
 
+    //instance methods
+    public String toString () {
+        return "Restaurant: " + this.name + "\n" +
+                "Rating: " + this.rating + " Stars\n" +
+                "Price: " + this.price;
+    }
+
 }

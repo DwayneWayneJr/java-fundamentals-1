@@ -20,4 +20,14 @@ public class RestaurantTest {
         Assert.assertEquals(4, input.rating);
         Assert.assertEquals("$$", input.price);
     }
+
+    @Test
+    public void testToString () {
+        String expected =
+                "Restaurant: My Lil' Cube" + "\n" +
+                "Rating: 4 Stars" + "\n" +
+                "Price: $$";
+
+        Assert.assertEquals(expected, input.toString());
+    }
 }
