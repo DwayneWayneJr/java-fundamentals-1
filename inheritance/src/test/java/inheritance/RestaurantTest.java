@@ -20,7 +20,7 @@ public class RestaurantTest {
     @Test
     public void testConstructorFunction () {
         Assert.assertEquals("My Lil' Cube", input.name);
-        Assert.assertEquals(4, input.rating);
+        Assert.assertEquals(14, input.rating);
         Assert.assertEquals("$$", input.price);
     }
 
@@ -28,8 +28,8 @@ public class RestaurantTest {
     public void testToString () {
         String expected =
                 "Restaurant: My Lil' Cube" + "\n" +
-                "Rating: 4 Stars" + "\n" +
-                "Reviews: 1" + "\n" +
+                "Rating: 14 Stars" + "\n" +
+                "Reviews: 2" + "\n" +
                 "Price: $$";
 
         Assert.assertEquals(expected, input.toString());
