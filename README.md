@@ -20,3 +20,10 @@
     
 ## Linter
   - searchForSemicolons
+  
+## Inheritance
+ - Restaurant.java
+  - Restaurant constructor
+  - addReview
+ - Review.java
+  - Review Constructor
