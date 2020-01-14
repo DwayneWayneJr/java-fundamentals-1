@@ -12,6 +12,9 @@ public class RestaurantTest {
     @Before
     public void initialize () throws Exception {
         input = new Restaurant("My Lil' Cube", 4, "$$");
+
+        Review myReview = new Review(20, "Best ramen ever");
+        input.addReview(myReview);
     }
 
     @Test
@@ -26,8 +29,19 @@ public class RestaurantTest {
         String expected =
                 "Restaurant: My Lil' Cube" + "\n" +
                 "Rating: 4 Stars" + "\n" +
+                "Reviews: 1" + "\n" +
                 "Price: $$";
 
         Assert.assertEquals(expected, input.toString());
+    }
+
+    @Test
+    public void testAddReview_ToRestaurant () {
+        Assert.assertEquals("Best ramen ever", input.restaurantReviews.getFirst().body);
+    }
+
+    @Test
+    public void testAddReview_UpdateStars () {
+        Assert.assertEquals(14, input.rating);
     }
 }
