@@ -11,7 +11,7 @@ public class ShopTest {
     public void initialize () throws Exception {
         input = new Shop ("The Good Book", "It's a bookstore", 5);
 
-        Review myReview = new Review(1, "I hate books");
+        Review myReview = new Review(1, "A. Monster","I hate books");
         input.addReview(myReview);
     }
 

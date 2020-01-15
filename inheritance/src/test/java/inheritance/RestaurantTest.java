@@ -13,7 +13,7 @@ public class RestaurantTest {
     public void initialize () throws Exception {
         input = new Restaurant("My Lil' Cube", 4, "$$");
 
-        Review myReview = new Review(20, "Best ramen ever");
+        Review myReview = new Review(20, "Rachael","Best ramen ever");
         input.addReview(myReview);
     }
 
