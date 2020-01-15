@@ -6,6 +6,7 @@ public class Review {
     String body;
     Review next;
     Restaurant restaurant;
+    Shop shop;
 
     //Constructor function
     Review (int rating, String review) {
@@ -13,6 +14,7 @@ public class Review {
         this.body = review;
         this.next = null;
         this.restaurant = null;
+        this.shop = null;
     }
 
 }
