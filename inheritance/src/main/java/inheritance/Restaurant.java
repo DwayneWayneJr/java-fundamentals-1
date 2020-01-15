@@ -33,6 +33,7 @@ public class Restaurant {
     public void addReview (Review newReview) {
         this.numberOfReviews ++;
         this.rating = this.rating + newReview.rating/this.numberOfReviews;
+        newReview.restaurant = this;
 
         this.restaurantReviews.addFirst(newReview);
     }
