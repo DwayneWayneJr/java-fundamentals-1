@@ -30,7 +30,7 @@ public class Shop implements Reviewable {
 
     public void addReview(Review newReview) {
         this.numberOfReviews ++;
-        this.rating = this.rating + newReview.rating/this.numberOfReviews;
+        this.rating = (this.rating + newReview.rating)/this.numberOfReviews;
         newReview.shop = this;
 
         this.shopReviews.addFirst(newReview);
