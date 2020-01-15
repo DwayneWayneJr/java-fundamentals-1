@@ -23,7 +23,7 @@
   
 ## Inheritance
  - Restaurant.java
-  - Restaurant constructor
-  - addReview
+    - Restaurant constructor
+    - addReview
  - Review.java
-  - Review Constructor
+    - Review Constructor
