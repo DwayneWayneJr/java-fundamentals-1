@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.LinkedList;
 
-public class Restaurant {
+public class Restaurant implements Reviewable {
     //instance variables
     String name;
     int rating; // (0 - 5)
