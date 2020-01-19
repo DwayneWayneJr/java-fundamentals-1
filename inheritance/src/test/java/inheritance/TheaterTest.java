@@ -9,13 +9,14 @@ public class TheaterTest {
 
     @Before
     public void setUp () throws Exception {
-        regal = new Theater("regal");
+        regal = new Theater("regal", 3);
         regal.addMovie("Frozen");
     }
 
     @Test
     public void testTheaterConstructor () {
         Assert.assertEquals("regal", regal.name);
+        Assert.assertEquals(3, regal.rating);
     }
 
     @Test
