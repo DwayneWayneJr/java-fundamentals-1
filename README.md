@@ -25,5 +25,16 @@
  - Restaurant.java
     - Restaurant constructor
     - addReview
+    - toString
  - Review.java
     - Review Constructor
+ - Shop.java
+    - Shop constructor
+    - addReview
+    - toString
+ - Theater.java
+    - Theater Constructor
+    - addMovie
+    - removeMovie
+    - addReview
+    - toString
